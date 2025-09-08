@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALL IN ONE (BUNDLE COURSE)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 50px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1c1c1c 0%, #343434 100%);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff8a00, #e52e71, #1c1c1c);
+        }
+        
+        .subheading {
+            font-size: 16px;
+            margin-top: 12px;
+            color: #ccc;
+            font-weight: normal;
+            line-height: 1.5;
+        }
+        
+        .subheading a {
+            color: #ffeb3b;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .subheading a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        
+        #video-container {
+            margin: 30px auto;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            background: #1c1c1c;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        #video-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        #video-player {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .video-js {
+            padding-top: 56.25%;
+        }
+        
+        .vjs-poster {
+            background-size: cover !important;
+        }
+        
+        #url-input-container {
+            display: none;
+            margin: 25px auto;
+            width: 90%;
+            max-width: 700px;
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        #url-input-container input {
+            width: 75%;
+            padding: 12px 15px;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        #url-input-container input:focus {
+            border-color: #0056b3;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+        
+        #url-input-container button {
+            width: 22%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+        
+        #url-input-container button:hover {
+            background: linear-gradient(135deg, #0069d9 0%, #004a9f 100%);
+            transform: translateY(-2px);
+        }
+        
+        #url-input-container button:active {
+            transform: translateY(0);
+        }
+        
+        .custom-url-btn {
+            margin: 25px auto;
+            padding: 14px 25px;
+            background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            width: 90%;
+            max-width: 700px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .custom-url-btn:hover {
+            background: linear-gradient(135deg, #218838 0%, #1e7e34 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .search-bar {
+            margin: 30px auto;
+            width: 90%;
+            max-width: 700px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 14px 20px 14px 50px;
+            border: 2px solid #6c757d;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%236c757d" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>') no-repeat 15px center;
+        }
+        
+        .search-bar input:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+        
+        .no-results {
+            color: #dc3545;
+            font-weight: bold;
+            margin: 30px auto;
+            text-align: center;
+            display: none;
+            font-size: 18px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            max-width: 700px;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            margin: 30px auto;
+            width: 90%;
+            max-width: 900px;
+            gap: 15px;
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 18px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #495057;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tab:hover {
+            background: #007bff;
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.2);
+        }
+        
+        .tab.active {
+            background: #0056b3;
+            color: white;
+        }
+        
+        .tab::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ff8a00, #e52e71);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .tab.active::after {
+            transform: scaleX(1);
+        }
+        
+        .content {
+            display: none;
+            margin: 30px auto;
+            width: 90%;
+            max-width: 900px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .content h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #0056b3;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #007bff, #00bfff);
+        }
+        
+        .video-list, .pdf-list, .other-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .video-list li, .pdf-list li, .other-list li {
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .video-list a, .pdf-list a, .other-list a {
+            display: block;
+            padding: 15px;
+            background: #f8f9fa;
+            margin: 8px 0;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #212529;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 4px solid #007bff;
+        }
+        
+        .video-list a:hover, .pdf-list a:hover, .other-list a:hover {
+            background: #e9ecef;
+            transform: translateX(10px);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-list a::before {
+            content: '▶️';
+            margin-right: 10px;
+        }
+        
+        .pdf-list a::before {
+            content: '📄';
+            margin-right: 10px;
+        }
+        
+        .other-list a::before {
+            content: '🖼️';
+            margin-right: 10px;
+        }
+        
+        .footer {
+            margin: 50px auto 0;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 20px;
+            background: linear-gradient(135deg, #1c1c1c 0%, #343434 100%);
+            color: white;
+            text-align: center;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 900px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .count-badge {
+            display: inline-block;
+            background: #dc3545;
+            color: white;
+            font-size: 14px;
+            padding: 3px 8px;
+            border-radius: 50px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .tab {
+                margin-bottom: 10px;
+            }
+            
+            #video-container, .content, .footer {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        ALL IN ONE (BUNDLE COURSE)
+        <div class="subheading">Extracted By : <a href="https://t.me/LUV5BOT" target="_blank">LUV5BOT</a></div>
+        <div class="subheading">Provide By : <a href="https://t.me/YTBR_67" target="_blank">GAURAV RAJPUT</a></div>
+        <div class="subheading"><b>Note : This HTML File is Free For Use.</b></div>
+    </div>
+
+    <div id="video-container">
+        <div id="video-player">
+            <video id="course-player" class="video-js vjs-default-skin" controls preload="auto" width="640" height="360"
+                   poster="https://via.placeholder.com/640x360/1c1c1c/ffffff?text=Video+Player">
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+            </video>
+        </div>
+    </div>
+
+    <div id="url-input-container">
+        <input type="text" id="url-input" placeholder="Enter Video URL to Play...">
+        <button onclick="playCustomUrl()">Play</button>
+    </div>
+
+    <button class="custom-url-btn" onclick="toggleUrlInput()">Enter Custom Video URL</button>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search for Videos, PDFs, or other resources..." oninput="filterContent()">
+    </div>
+
+    <div id="noResults" class="no-results">No matching results found. Try different keywords.</div>
+
+    <div class="container">
+        <div class="tab active" onclick="showContent('videos')">
+            Videos <span class="count-badge">17</span>
+        </div>
+        <div class="tab" onclick="showContent('pdfs')">
+            PDFs <span class="count-badge">0</span>
+        </div>
+        <div class="tab" onclick="showContent('others')">
+            Others <span class="count-badge">0</span>
+        </div>
+    </div>
+
+    <div id="videos" class="content" style="display: block;">
+        <h2>All Video Lectures <small>(17 available)</small></h2>
+        <ul class="video-list">
+            <li><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/654553621ffd3734c42f2170/playlist.m3u8')" class="video-link">📹 Video Lecture 1</a></li><li><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6729e077b29cac68435440a2/playlist.m3u8')" class="video-link">📹 Video Lecture 2</a></li><li><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/659a71d81ffd3734c48c11a1/playlist.m3u8')" class="video-link">📹 Video Lecture 3</a></li><li><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6545386a1ffd3734c42f0edf/playlist.m3u8')" class="video-link">📹 Video Lecture 4</a></li><li><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/659a6e021ffd3734c48c0bb0/playlist.m3u8')" class="video-link">📹 Video Lecture 5</a></li><li><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6729e142b29cac68435445fd/playlist.m3u8')" class="video-link">📹 Video Lecture 6</a></li><li><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/65453d6c734b790a42fa828e/playlist.m3u8')" class="video-link">📹 Video Lecture 7</a></li><li><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/654540a5734b790a42fa85e8/playlist.m3u8')" class="video-link">📹 Video Lecture 8</a></li><li><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/654542d71ffd3734c42f191d/playlist.m3u8')" class="video-link">📹 Video Lecture 9</a></li><li><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/65454f241ffd3734c42f2028/playlist.m3u8')" class="video-link">📹 Video Lecture 10</a></li><li><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/65453b7d1ffd3734c42f1214/playlist.m3u8')" class="video-link">📹 Video Lecture 11</a></li><li><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/659a75cb734b790a425782ab/playlist.m3u8')" class="video-link">📹 Video Lecture 12</a></li><li><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6729e0dbb29cac684354431d/playlist.m3u8')" class="video-link">📹 Video Lecture 13</a></li><li><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/654541cd734b790a42fa86e4/playlist.m3u8')" class="video-link">📹 Video Lecture 14</a></li><li><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/659a6bf41ffd3734c48c084a/playlist.m3u8')" class="video-link">📹 Video Lecture 15</a></li><li><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/6545451c734b790a42fa897f/playlist.m3u8')" class="video-link">📹 Video Lecture 16</a></li><li><a href="#" onclick="playVideo('https://api.extractor.workers.dev/player?url=https://media-cdn.classplusapp.com/drm/659a6f331ffd3734c48c0d72/playlist.m3u8')" class="video-link">📹 Video Lecture 17</a></li>
+        </ul>
+    </div>
+
+    <div id="pdfs" class="content">
+        <h2>All PDF Resources <small>(0 available)</small></h2>
+        <ul class="pdf-list">
+            
+        </ul>
+    </div>
+
+    <div id="others" class="content">
+        <h2>Other Resources <small>(0 available)</small></h2>
+        <ul class="other-list">
+            
+        </ul>
+    </div>
+
+    <div class="footer">Extracted By : <a href="https://t.me/luv5bot" target="_blank">LUV5BOT</a></div>
+    <div class="footer">Provide By : <a href="https://t.me/YTBR_67" target="_blank">GAURAV RAJPUT</a></div>
+
+    <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+    <script>
+        const player = videojs('course-player', {
+            controls: true,
+            autoplay: false,
+            preload: 'auto',
+            fluid: true,
+            responsive: true,
+            controlBar: {
+                children: [
+                    'playToggle',
+                    'volumePanel',
+                    'currentTimeDisplay',
+                    'timeDivider',
+                    'durationDisplay',
+                    'progressControl',
+                    'liveDisplay',
+                    'remainingTimeDisplay',
+                    'customControlSpacer',
+                    'playbackRateMenuButton',
+                    'qualitySelector',
+                    'fullscreenToggle'
+                ]
+            }
+        });
+        
+        function playVideo(url) {
+            if (url.includes('.m3u8')) {
+                document.getElementById('video-container').style.display = 'block';
+                player.src({ src: url, type: 'application/x-mpegURL' });
+                player.poster('https://via.placeholder.com/640x360/1c1c1c/ffffff?text=Loading+Video');
+                player.play().catch(error => {
+                    console.error('Error playing video:', error);
+                    window.open(url, '_blank');
+                });
+            } else {
+                window.open(url, '_blank');
+            }
+        }
+        
+        function toggleUrlInput() {
+            const urlInputContainer = document.getElementById('url-input-container');
+            urlInputContainer.style.display = urlInputContainer.style.display === 'none' ? 'block' : 'none';
+            if (urlInputContainer.style.display === 'block') {
+                document.getElementById('url-input').focus();
+            }
+        }
+        
+        function playCustomUrl() {
+            const url = document.getElementById('url-input').value.trim();
+            if (url) {
+                if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                    playVideo('https://' + url);
+                } else {
+                    playVideo(url);
+                }
+            } else {
+                alert('Please enter a valid video URL');
+            }
+        }
+        
+        function showContent(tabName) {
+            // Update active tab
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            const clickedTab = event.currentTarget;
+            clickedTab.classList.add('active');
+            
+            // Show selected content
+            document.querySelectorAll('.content').forEach(content => {
+                content.style.display = 'none';
+            });
+            document.getElementById(tabName).style.display = 'block';
+            
+            // Apply search filter
+            filterContent();
+        }
+        
+        function filterContent() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const contentCategories = ['videos', 'pdfs', 'others'];
+            let hasResults = false;
+            
+            contentCategories.forEach(contentCategory => {
+                const listClass = contentCategory === 'others' ? 'other-list' : contentCategory.replace('s', '') + '-list';
+                const items = document.querySelectorAll(`#${contentCategory} .${listClass} a`);
+                let categoryHasResults = false;
+                
+                items.forEach(item => {
+                    const itemText = item.textContent.toLowerCase();
+                    if (itemText.includes(searchTerm)) {
+                        item.style.display = 'flex';
+                        categoryHasResults = true;
+                        hasResults = true;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                // Show/hide category heading based on results
+                const categorySection = document.getElementById(contentCategory);
+                if (categorySection) {
+                    categorySection.style.display = categoryHasResults ? 'block' : 'none';
+                }
+            });
+            
+            // Show no results message if no matches found
+            document.getElementById('noResults').style.display = hasResults ? 'none' : 'block';
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            showContent('videos');
+            
+            // Add keyboard shortcut for search (Ctrl+F or Cmd+F)
+            document.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
+                    e.preventDefault();
+                    document.getElementById('searchInput').focus();
+                }
+            });
+            
+            // Handle clicks on video links
+            document.querySelectorAll('.video-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const url = link.getAttribute('onclick').match(/'([^']+)'/)[1];
+                    playVideo(url);
+                });
+            });
+            
+            // Handle clicks on PDF links
+            document.querySelectorAll('.pdf-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.open(link.href, '_blank');
+                });
+            });
+            
+            // Handle clicks on image links
+            document.querySelectorAll('.image-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.open(link.href, '_blank');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Bca 1St Sem -- Selection Batch -- C- Language -- </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg-color: #121212;
+      --text-color: #f0f0f0;
+      --primary-color: #00bfff;
+      --secondary-color: #ff9800;
+      --success-color: #00ff99;
+      --warning-color: #ffc107;
+      --card-bg: #1e1e1e;
+      --section-bg: #1f1f1f;
+      --link-color: #00bfff;
+      --pdf-color: #ffc107;
+      --button-text: #ffffff;
+    }
+    
+    [data-theme="light"] {
+      --bg-color: #f8f9fa;
+      --text-color: #333333;
+      --primary-color: #0066cc;
+      --secondary-color: #e67e22;
+      --success-color: #27ae60;
+      --warning-color: #f39c12;
+      --card-bg: #ffffff;
+      --section-bg: #e9ecef;
+      --link-color: #0066cc;
+      --pdf-color: #e67e22;
+      --button-text: #333333;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      padding: 15px;
+      margin: 0;
+      transition: all 0.3s ease;
+      line-height: 1.5;
+    }
+    
+    h1 {
+      color: var(--primary-color);
+      text-align: center;
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 8px;
+      font-size: 1.5em;
+      margin: 15px 0;
+    }
+    
+    .meta-info {
+      text-align: center;
+      color: var(--text-color);
+      opacity: 0.8;
+      margin-bottom: 15px;
+      font-size: 0.85em;
+    }
+    
+    .section-button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0;
+      font-size: 1em;
+      text-align: center;
+      color: var(--button-text);
+      background-color: var(--section-bg);
+      border: 1px solid var(--primary-color);
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .section-button:hover {
+      background-color: var(--primary-color);
+      color: white;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .section {
+      display: none;
+      margin-bottom: 15px;
+    }
+    
+    .topic-button {
+      background-color: var(--section-bg);
+      border-color: var(--secondary-color);
+      margin: 4px 0;
+    }
+    
+    .topic-button:hover {
+      background-color: var(--secondary-color);
+    }
+    
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    li {
+      background-color: var(--card-bg);
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      font-size: 0.95em;
+      transition: all 0.2s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    
+    li:hover {
+      transform: translateX(2px);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+    
+    .number {
+      font-weight: bold;
+      color: var(--secondary-color);
+      margin-right: 8px;
+      min-width: 20px;
+    }
+    
+    .link-title {
+      color: var(--link-color);
+      text-decoration: none;
+      flex-grow: 1;
+      word-break: break-word;
+    }
+    
+    .link-title:hover {
+      text-decoration: underline;
+    }
+    
+    .pdf-title {
+      color: var(--pdf-color);
+    }
+    
+    .file-info {
+      background-color: var(--section-bg);
+      padding: 8px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+      font-size: 0.85em;
+    }
+    
+    .controls {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+    
+    .theme-toggle {
+      padding: 6px 12px;
+      background-color: var(--section-bg);
+      border: 1px solid var(--primary-color);
+      border-radius: 4px;
+      cursor: pointer;
+      color: var(--button-text);
+      font-size: 0.9em;
+    }
+    
+    .theme-toggle:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.8em;
+      color: var(--text-color);
+      opacity: 0.7;
+    }
+    
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      
+      .controls {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .theme-toggle {
+        width: 100%;
+        margin-bottom: 8px;
+      }
+      
+      li {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .number {
+        margin-bottom: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+<h1>Bca 1St Sem -- Selection Batch -- C- Language -- </h1>
+<div class="meta-info">
+  <div>Converted by: ᴍᴀʀꜱʜᴍᴀʟʟᴏᴡ×͜×</div>
+  <div>IST: 2025-09-05 at 15:42:47</div>
+</div>
+
+<div class="file-info">
+  <div>Original size: 5.52 KB</div>
+  <div>Total links: 34</div>
+</div>
+
+<div class="controls">
+  <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
+</div><button class='section-button' onclick="toggleSection('classes')">Classes (34)</button>
+<div id='classes' class='section'><button class='section-button topic-button' onclick="toggleSection('class_topic_Playlist')">Playlist (34)</button>
+<div id='class_topic_Playlist' class='section'><ul><li>
+                          <span class='number'>1.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/cc/aa3cebf43f0c4ed69c9f083f58c8d765-vo/master.m3u8' class='link-title' target='_blank'>(You tube C class)(You tube recorded class)_ SYLLABUS DISCUSSION __ DAY-1 __ BY- NITIN SIR</a>
+                        </li><li>
+                          <span class='number'>2.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/cc/951218edab5d46c780b6661f98a8a1a5-qa/master.m3u8' class='link-title' target='_blank'>(You tube C class)(You tube recorded class)ALGORITHMS & FLOWCHART   _ DAY-2</a>
+                        </li><li>
+                          <span class='number'>3.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/cc/36c1b3d9aeac443abd26b55729706a71-u5/master.m3u8' class='link-title' target='_blank'>(You tube C class)(You tube recorded class)_ ALGORITHMS & FLOWCHART   _ DAY-3</a>
+                        </li><li>
+                          <span class='number'>4.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/cc/2efc6e6fd2b143b09d4f21752a307e8b-kw/master.m3u8' class='link-title' target='_blank'>(You tube C class)(You tube recorded class)INTRODUCTION TO PROGRAMMING LANGUAGE   _ DAY-04</a>
+                        </li><li>
+                          <span class='number'>5.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/cc/406d65fcca0941a8bb5bdcf2d0df0600-tx/master.m3u8' class='link-title' target='_blank'>(You tube C class)(You tube recorded class)__ C- PROGRAMMING __ DAY-05</a>
+                        </li><li>
+                          <span class='number'>6.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/cc/bd4890b499084573bee70d5c4a3405b2-ru/master.m3u8' class='link-title' target='_blank'>(You tube C class)(You tube recorded class)__ DATA TYPES IN C __ DAY-06</a>
+                        </li><li>
+                          <span class='number'>7.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/cc/800aaec22abd4b30908b8184ab3c26c4-20/master.m3u8' class='link-title' target='_blank'>(You tube C class)(You tube recorded class)__ DATA TYPES IN C __ DAY-07</a>
+                        </li><li>
+                          <span class='number'>8.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/cc/6bfb39cef718435ea358a43c9e6e4d8c-ko/master.m3u8' class='link-title' target='_blank'>(You tube C class)(You tube recorded class)DATA TYPE IN -C🔥 __ DAY-08</a>
+                        </li><li>
+                          <span class='number'>9.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/cc/ac1efce9acae481585e3be45a33a606d-pg/master.m3u8' class='link-title' target='_blank'>(You tube C class)(You tube recorded class)C TOKENS & DECLARATION OF VARIABLES IN ‘C’__ DAY-09</a>
+                        </li><li>
+                          <span class='number'>10.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/cc/960b35903bb146c196ef0e2fdb4de496-0p/master.m3u8' class='link-title' target='_blank'>(You tube C class)(You tube recorded class)‘C’ OPERATORS __ DAY-10</a>
+                        </li><li>
+                          <span class='number'>11.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/cc/c08f49e4df7a42769af120593ce7719b-1u/master.m3u8' class='link-title' target='_blank'>(You tube C class)(You tube recorded class)C’ OPERATORS __ DAY-11</a>
+                        </li><li>
+                          <span class='number'>12.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/cc/1faa7927892c41cbac3c67e2b799c02c-3m/master.m3u8' class='link-title' target='_blank'>(You tube C class)(You tube recorded class)‘C’ OPERATORS __ DAY-12</a>
+                        </li><li>
+                          <span class='number'>13.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/cc/90fad28c7e7c4e6eb307fe0ee892ea73-9e/master.m3u8' class='link-title' target='_blank'>(You tube C class)(You tube recorded class)‘C’ Expressions & Its Types __ DAY-13</a>
+                        </li><li>
+                          <span class='number'>14.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/cc/a55580e9467f469cb5873bf836d0da8c-e2/master.m3u8' class='link-title' target='_blank'>(You tube C class)(You tube recorded class)DECISION MAKING& BRANCHING IN C __ DAY-14</a>
+                        </li><li>
+                          <span class='number'>15.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/14wf2-5725670n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Syllabus Discussion)BCA 1st SEM || SELECTION BATCH || C LANGUAGE || SYLLABUS DISCUSSION || DAY-01|</a>
+                        </li><li>
+                          <span class='number'>16.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/ywnn2-5737212n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-I)Algorithms and Flowcharts in C || DAY-02 ||</a>
+                        </li><li>
+                          <span class='number'>17.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/ccnh7-5742367n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-I)Algorithms and Flowcharts in C || DAY-03 ||</a>
+                        </li><li>
+                          <span class='number'>18.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/b0k2t-5753534n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-I)C LANGUAGE || Introduction to Programming Language || DAY-05 ||</a>
+                        </li><li>
+                          <span class='number'>19.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/rtfpg-5746245n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-I)C LANGUAGE ||Algorithms and Flowcharts in C || DAY-04 ||</a>
+                        </li><li>
+                          <span class='number'>20.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/o4eez-5759029n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-I)C LANGUAGE || C Programming || DAY-06 ||</a>
+                        </li><li>
+                          <span class='number'>21.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/jdka3-5764505n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-I)C LANGUAGE || Data Type In C || DAY-07 ||</a>
+                        </li><li>
+                          <span class='number'>22.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/0z11k-5769591n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-I)C LANGUAGE || Constants Variabl || DAY-08 ||</a>
+                        </li><li>
+                          <span class='number'>23.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/p4je4-5782050n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-I)C LANGUAGE || C Tokens & Declaration || DAY-09 ||</a>
+                        </li><li>
+                          <span class='number'>24.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/3vbvr-5787773n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-I)C -Operator || DAY-10 ||</a>
+                        </li><li>
+                          <span class='number'>25.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/jxmjj-5793365n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-I)|| C -Operator || DAY-11 ||</a>
+                        </li><li>
+                          <span class='number'>26.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/a28xa-5808651n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-I)|| C -Operator || DAY-12 ||</a>
+                        </li><li>
+                          <span class='number'>27.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/jydoj-5820469n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-II)Decision Makeing & Branching in C|| DAY-01 ||</a>
+                        </li><li>
+                          <span class='number'>28.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/9iwcv-5824443n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-II)Decision Makeing & Branching in C|| DAY-02||</a>
+                        </li><li>
+                          <span class='number'>29.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/wt57a-5829444n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-II)Decision Makeing & Branching in C|| DAY-03 ||</a>
+                        </li><li>
+                          <span class='number'>30.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/1h6uz-5834440n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-II)Loops In Programming || DAY-04 ||</a>
+                        </li><li>
+                          <span class='number'>31.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/iq45q-5838494n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-II)Loops In Programming || DAY-05 ||</a>
+                        </li><li>
+                          <span class='number'>32.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/eo3sy-5846392n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-II)Loops In Programming || DAY-06 ||</a>
+                        </li><li>
+                          <span class='number'>33.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/nz4d7-5851641n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-II)Loops In Programming || DAY-07 ||</a>
+                        </li><li>
+                          <span class='number'>34.</span> 
+                          <a href='https://media-cdn.classplusapp.com/44046/lc/k9jvt-5862984n/master.m3u8' class='link-title' target='_blank'>(Live Class C Language)(Unit-II)|| Loops In Programming || DAY-08 ||</a>
+                        </li></ul></div></div>
+<footer>
+  <div>Converted on 2025-09-05 at 15:42:47 IST</div>
+  <div>Powered by ᴍᴀʀꜱʜᴍᴀʟʟᴏᴡ×͜×</div>
+</footer>
+
+<script>
+  // Toggle sections
+  function toggleSection(id) {
+    const section = document.getElementById(id);
+    section.style.display = section.style.display === 'block' ? 'none' : 'block';
+  }
+
+  // Toggle theme
+  function toggleTheme() {
+    const body = document.body;
+    const currentTheme = body.getAttribute('data-theme');
+    if (currentTheme === 'light') {
+      body.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      body.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    }
+  }
+
+  // Apply saved theme preference
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  document.body.setAttribute('data-theme', savedTheme);
+</script>
+</body></html>
